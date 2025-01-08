@@ -5,8 +5,15 @@ public class Person {
     private int weight;
     private int height;
 
+    private Pet pet;
+
     public Person(String name) {
         this(name, 0, 0, 0);
+    }
+
+    public Person(String name, Pet pet) {
+        this.name = name;
+        this.pet = pet;
     }
 
     public Person(String name, int age, int height, int weight) {
@@ -53,6 +60,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.name + ", age " + this.age + " years";
+        return this.name + ", has a friend called " + pet.getName() + " (" + pet.getBreed() + ")";
     }
 }
