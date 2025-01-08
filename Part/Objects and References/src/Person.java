@@ -6,11 +6,17 @@ public class Person {
     private int height;
 
     private Pet pet;
+    private SimpleDate birthday;
 
     public Person(String name) {
         this(name, 0, 0, 0);
     }
 
+    public Person(String name, SimpleDate date) {
+         this.name = name;
+         this.birthday = date;
+
+    }
     public Person(String name, Pet pet) {
         this.name = name;
         this.pet = pet;
@@ -58,8 +64,29 @@ public class Person {
         return this.weight / (heightPerHundred * heightPerHundred);
     }
 
+    public boolean olderThan(Person compared) {
+
+        int ownYear = this.birthday.getYear();
+        int otherYear = compared.birthday.getYear();
+
+        if (ownYear < otherYear) {
+            return true;
+        }
+
+        if (ownYear > otherYear) {
+            return false;
+        }
+        return false;
+    }
+
+//    @Override
+//    public String toString() {
+//        return this.name + ", has a friend called " + pet.getName() + " (" + pet.getBreed() + ")";
+//    }
+
+
     @Override
     public String toString() {
-        return this.name + ", has a friend called " + pet.getName() + " (" + pet.getBreed() + ")";
+        return this.name + ", born on " + this.birthday;
     }
 }
