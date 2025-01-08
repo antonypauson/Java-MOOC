@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 public class Apartment {
     private int rooms;
     private int squares;
@@ -15,6 +13,14 @@ public class Apartment {
         return this.squares > compared.squares;
     }
 
+    public int priceDifference(Apartment compared) {
+        return Math.abs((this.pricePerSquare*this.squares) - (compared.pricePerSquare*compared.squares));
+    }
+
+    public boolean moreExpensiveThan(Apartment compared) {
+        return this.pricePerSquare < compared.pricePerSquare;
+    }
+
     public static void main(String[] args) {
         Apartment manhattanStudioApt = new Apartment(1, 16, 5500);
         Apartment atlantaTwoBedroomApt = new Apartment(2, 38, 4200);
@@ -22,6 +28,12 @@ public class Apartment {
 
         System.out.println(manhattanStudioApt.largerThan(atlantaTwoBedroomApt));
         System.out.println(bangorThreeBedroomApt.largerThan(atlantaTwoBedroomApt));
+
+        System.out.println(manhattanStudioApt.priceDifference(atlantaTwoBedroomApt));
+        System.out.println(bangorThreeBedroomApt.priceDifference(atlantaTwoBedroomApt));
+
+        System.out.println(manhattanStudioApt.moreExpensiveThan(atlantaTwoBedroomApt));
+        System.out.println(bangorThreeBedroomApt.moreExpensiveThan(atlantaTwoBedroomApt));
     }
 
 
