@@ -38,6 +38,28 @@ public class SimpleDate {
         return false;
     }
 
+    //are two objects equal?
+    public boolean equals(Object compared) {
+
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof SimpleDate)) {
+            return false;
+        }
+
+        SimpleDate comparedInstance = (SimpleDate) compared;
+
+        if (this.day == comparedInstance.day &&
+            this.month == comparedInstance.month &&
+            this.year == comparedInstance.year) {
+            return true;
+        }
+
+        return false;
+    }
+
 
     public static void main(String[] args) {
         SimpleDate date1 = new SimpleDate(1, 1, 780);
@@ -53,5 +75,9 @@ public class SimpleDate {
         } else {
             System.out.println(muhammed.getName() + " is not older than " + pascal.getName());
         }
+
+        //lets compare dates
+        SimpleDate date3 = new SimpleDate(1, 1, 780);
+        System.out.println(date1.equals(date3));
     }
 }

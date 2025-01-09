@@ -89,4 +89,31 @@ public class Person {
     public String toString() {
         return this.name + ", born on " + this.birthday;
     }
+
+    //comparison
+    public boolean equals(Object compared) {
+
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof Person)) {
+            return false;
+        }
+
+        Person comparedPerson = (Person) compared;
+
+        if (this.name.equals(comparedPerson.name)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        Person tony = new Person("TONY");
+        Person tonyJr = new Person("TONY");
+
+        System.out.println(tony.equals(tonyJr));
+    }
 }
