@@ -103,7 +103,10 @@ public class Person {
 
         Person comparedPerson = (Person) compared;
 
-        if (this.name.equals(comparedPerson.name)) {
+        if (this.name.equals(comparedPerson.name) &&
+                (this.birthday.getYear() == comparedPerson.birthday.getYear()) &&
+                (this.birthday.getMonth() == comparedPerson.birthday.getMonth()) &&
+                (this.birthday.getDay()) == comparedPerson.birthday.getDay()) {
             return true;
         }
         return false;
@@ -111,8 +114,10 @@ public class Person {
 
     public static void main(String[] args) {
 
-        Person tony = new Person("TONY");
-        Person tonyJr = new Person("TONY");
+        SimpleDate d1 = new SimpleDate(13, 3, 2003);
+        SimpleDate d2 = new SimpleDate(16,3,2003);
+        Person tony = new Person("TONY", d1);
+        Person tonyJr = new Person("TONY",d2);
 
         System.out.println(tony.equals(tonyJr));
     }
