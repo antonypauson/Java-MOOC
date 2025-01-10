@@ -23,16 +23,27 @@ public class SimpleCollection {
         }
         return printOut + output;
     }
+
+    public String longest() {
+        String longestElement = collection.get(0);
+
+        for (String element: collection) {
+            if (longestElement.length() < element.length()) {
+                longestElement = element;
+            }
+        }
+        return longestElement;
+    }
     public static void main(String[] args) {
         SimpleCollection s = new SimpleCollection("alpha");
         System.out.println(s);
-
         s.add("a");
-        System.out.println(s);
-        s.add("b");
-        System.out.println(s);
 
-        s.add("c");
+        s.add("bcom");
+
+        s.add("cat");
         System.out.println(s);
+        System.out.println("Longest: " + s.longest());
+
     }
 }

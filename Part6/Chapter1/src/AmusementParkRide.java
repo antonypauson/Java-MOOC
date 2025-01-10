@@ -57,6 +57,24 @@ public class AmusementParkRide {
 
         return (double) sumOfHeights / riding.size();
     }
+
+    public Person getTallest() {
+
+        if (this.riding.isEmpty()) {
+            return null;
+        }
+
+        Person tallestPerson = riding.get(0); //initially the first rider
+
+        for (Person person : riding) {
+
+            if (person.getHeight() > tallestPerson.getHeight()) {
+                tallestPerson = person;
+            }
+        }
+
+        return tallestPerson;
+    }
     public static void main(String[] args) {
         Person matti = new Person("Matti");
         matti.setWeight(86);
@@ -78,5 +96,7 @@ public class AmusementParkRide {
 
         System.out.println(ride1);
         System.out.println(ride1.averageHeightOfPeopleOnRide());
+
+        System.out.println(ride1.getTallest().getName());
     }
 }
