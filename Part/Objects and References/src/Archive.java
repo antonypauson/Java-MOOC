@@ -13,6 +13,21 @@ public class Archive {
         return identifier + ": " + name;
     }
 
+    public boolean equals(Object compared) {
+
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof Archive)) {
+            return false;
+        }
+
+        Archive comparedItem = (Archive) compared;
+        return comparedItem.identifier.equals(this.identifier)
+                && comparedItem.name.equals(this.name);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Archive> archives = new ArrayList<>();
@@ -33,7 +48,9 @@ public class Archive {
 
             Archive singleArchive = new Archive(identifier, name);
 
-            archives.add(singleArchive);
+            if (!(archives.contains(singleArchive))) {
+                archives.add(singleArchive);
+            }
         }
 
         System.out.println("==ITEMS==");
