@@ -31,7 +31,7 @@ public class Money {
     }
 
     public Money minus(Money decreaser) {
-        Money reducedMoney = new Money(this.euros. - decreaser.euros, this.cents - decreaser.cents);
+        Money reducedMoney = new Money(this.euros- decreaser.euros, this.cents - decreaser.cents);
         return reducedMoney;
     }
 
