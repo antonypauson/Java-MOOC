@@ -59,6 +59,13 @@ public class SimpleDate {
         }
     }
 
+    public void advance(int howManyDays) {
+        while (howManyDays > 0) {
+            this.advance();
+            howManyDays--;
+        }
+    }
+
 
     //are two objects equal?
     public boolean equals(Object compared) {
@@ -104,6 +111,7 @@ public class SimpleDate {
         System.out.println(date1);
         date1.advance();
         System.out.println(date1);
-
+        date1.advance(30);
+        System.out.println(date1);
     }
 }
