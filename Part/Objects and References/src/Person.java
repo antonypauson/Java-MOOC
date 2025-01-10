@@ -89,4 +89,36 @@ public class Person {
     public String toString() {
         return this.name + ", born on " + this.birthday;
     }
+
+    //comparison
+    public boolean equals(Object compared) {
+
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof Person)) {
+            return false;
+        }
+
+        Person comparedPerson = (Person) compared;
+
+        if (this.name.equals(comparedPerson.name) &&
+                (this.birthday.getYear() == comparedPerson.birthday.getYear()) &&
+                (this.birthday.getMonth() == comparedPerson.birthday.getMonth()) &&
+                (this.birthday.getDay()) == comparedPerson.birthday.getDay()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        SimpleDate d1 = new SimpleDate(13, 3, 2003);
+        SimpleDate d2 = new SimpleDate(16,3,2003);
+        Person tony = new Person("TONY", d1);
+        Person tonyJr = new Person("TONY",d2);
+
+        System.out.println(tony.equals(tonyJr));
+    }
 }
