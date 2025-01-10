@@ -40,6 +40,23 @@ public class AmusementParkRide {
         }
         return printOutput + peopleOnRide;
     }
+
+    public void removeEveryoneOnRide() {
+        this.riding.clear();
+    }
+
+    public double averageHeightOfPeopleOnRide() {
+        if (riding.isEmpty()) {
+            return -1;
+        }
+
+        int sumOfHeights = 0;
+        for (Person person : riding) {
+            sumOfHeights += person.getHeight();
+        }
+
+        return (double) sumOfHeights / riding.size();
+    }
     public static void main(String[] args) {
         Person matti = new Person("Matti");
         matti.setWeight(86);
@@ -49,12 +66,17 @@ public class AmusementParkRide {
         jj.setHeight(132);
         jj.setWeight(34);
 
+        Person awak = new Person("Awak");
+        awak.setHeight(194);
+
         AmusementParkRide ride1 = new AmusementParkRide("RIDE 1", 140);
         System.out.println(ride1);
 
         ride1.isAllowedOn(matti);
         ride1.isAllowedOn(jj);
+        ride1.isAllowedOn(awak);
 
         System.out.println(ride1);
+        System.out.println(ride1.averageHeightOfPeopleOnRide());
     }
 }
