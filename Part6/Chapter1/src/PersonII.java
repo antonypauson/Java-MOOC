@@ -10,4 +10,8 @@ public class PersonII {
     public String toString() {
         return name + "(" + height + "cm)";
     }
+
+    public int getHeight() {
+        return height;
+    }
 }

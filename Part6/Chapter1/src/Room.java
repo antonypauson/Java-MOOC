@@ -19,6 +19,21 @@ public class Room {
         return this.people;
     }
 
+    public PersonII shortest() {
+
+        if (people.isEmpty()) {
+            return null;
+        }
+
+        PersonII shortestPerson = people.get(0);
+        for (PersonII person : people) {
+            if (shortestPerson.getHeight() > person.getHeight()) {
+                shortestPerson = person;
+            }
+        }
+        return shortestPerson;
+    }
+
     public static void main(String[] args) {
         Room room = new Room();
         System.out.println("Empty room? " + room.isEmpty());
@@ -31,5 +46,7 @@ public class Room {
         for (PersonII person : room.getPerson()) {
             System.out.println(person);
         }
+
+        System.out.println("Shortest: " + room.shortest());
     }
 }
