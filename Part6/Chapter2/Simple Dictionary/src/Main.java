@@ -7,5 +7,6 @@ public class Main {
 
         TextUI ui = new TextUI(scanner, dictionary);
         ui.start();
+        System.out.println("Translation of achan: " + dictionary.translate("achan"));
     }
 }

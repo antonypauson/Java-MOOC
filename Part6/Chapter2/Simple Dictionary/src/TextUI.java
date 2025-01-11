@@ -17,8 +17,18 @@ public class TextUI {
             if (input.equals("end")) {
                 System.out.println("Bye bye!");
                 break;
+            } else if (input.equals("add")) {
+                System.out.println("Word:");
+                String word = scanner.nextLine();
+                System.out.println("Translation:");
+                String trans = scanner.nextLine();
+
+                dict.addToDict(new Words(word, trans));
+            } else {
+                System.out.println("Unknown command");
             }
         }
+
 
     }
 }
