@@ -19,8 +19,8 @@ public class Room {
         return this.people;
     }
 
+    //finding the shortest person in the room
     public PersonII shortest() {
-
         if (people.isEmpty()) {
             return null;
         }
@@ -31,6 +31,17 @@ public class Room {
                 shortestPerson = person;
             }
         }
+        return shortestPerson;
+    }
+
+    public PersonII take() {
+        PersonII shortestPerson = this.shortest();
+
+        if (shortestPerson == null) {
+            return null;
+        }
+
+        people.remove(shortestPerson);
         return shortestPerson;
     }
 
@@ -47,6 +58,11 @@ public class Room {
             System.out.println(person);
         }
 
-        System.out.println("Shortest: " + room.shortest());
+//        System.out.println("Shortest: " + room.take());
+        System.out.println();
+
+        while (!room.isEmpty()) {
+            System.out.println(room.take());
+        }
     }
 }
