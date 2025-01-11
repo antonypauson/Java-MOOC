@@ -24,6 +24,13 @@ public class Suitcase {
     }
 
     public String toString() {
+        if (items.size() < 1) {
+            return "no items (0 kg)";
+        }
+
+        if (items.size() == 1) {
+            return items.size() + " item (" + totalWeight + " kg)";
+        }
         return items.size() + " items (" + totalWeight + " kg)";
     }
 
