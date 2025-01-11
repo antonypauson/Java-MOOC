@@ -23,7 +23,7 @@ public class SimpleDictionary {
                 return word.getTranslate();
             }
         }
-        return "";
+        return null;
     }
 
 }
