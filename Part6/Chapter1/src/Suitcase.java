@@ -3,27 +3,21 @@ import java.util.ArrayList;
 public class Suitcase {
     private ArrayList<Item> items;
     private int maxWeight;
-    private int totalWeight;
 
     public Suitcase(int maxWeight) {
         this.maxWeight = maxWeight;
         this.items = new ArrayList<>();
-
     }
 
     public void addItem(Item item) {
-        this.totalWeight = 0;
-        for (Item itemOne : items) {
-            totalWeight += itemOne.getWeight();
-        }
-
-        if (totalWeight + item.getWeight() < maxWeight) {
+        int currentWeight = this.getTotalWeight();
+        if (currentWeight + item.getWeight() <= maxWeight) {
             items.add(item);
-            totalWeight += item.getWeight();
         }
     }
 
     public String toString() {
+        int totalWeight = this.getTotalWeight();
         if (items.isEmpty()) {
             return "no items (0 kg)";
         }
@@ -44,6 +38,10 @@ public class Suitcase {
     }
 
     public int getTotalWeight() {
+        int totalWeight = 0;
+        for (Item item: items) {
+            totalWeight += item.getWeight();
+        }
         return totalWeight;
     }
 
