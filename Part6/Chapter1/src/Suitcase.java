@@ -16,6 +16,18 @@ public class Suitcase {
         }
     }
 
+    public Item heaviestItem() {
+        Item heaviestItem = items.get(0);
+
+        for (Item eachItem : items) {
+            if (heaviestItem.getWeight() < eachItem.getWeight()) {
+                heaviestItem = eachItem;
+            }
+        }
+
+        return heaviestItem;
+    }
+
     public String toString() {
         int totalWeight = this.getTotalWeight();
         if (items.isEmpty()) {
@@ -61,5 +73,8 @@ public class Suitcase {
 
         suitcase.printItems();
         System.out.println("Total weight: " + suitcase.getTotalWeight() + " kg");
+
+        Item heaviest = suitcase.heaviestItem();
+        System.out.println("Heaviest item: " + heaviest);
     }
 }
