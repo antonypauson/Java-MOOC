@@ -24,7 +24,13 @@ public class TextUI {
                 String trans = scanner.nextLine();
 
                 dict.addToDict(new Words(word, trans));
-            } else {
+            } else if (input.equals("search")) {
+                System.out.println("To be translated:");
+                String word = scanner.nextLine();
+
+                System.out.println("Translation:" + dict.translate(word));
+            }
+            else {
                 System.out.println("Unknown command");
             }
         }
