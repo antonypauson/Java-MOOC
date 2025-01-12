@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//procedural programming in here
 public class Main {
     public static void main(String[] args) {
         int first = 0;
