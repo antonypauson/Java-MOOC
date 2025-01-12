@@ -66,6 +66,12 @@ public class SimpleDate {
         }
     }
 
+    public SimpleDate afterNumberOfDays(int days) {
+        SimpleDate newDate = new SimpleDate(this.day, this.month, this.year);
+        newDate.advance(days);
+
+        return newDate;
+    }
 
     //are two objects equal?
     public boolean equals(Object compared) {
@@ -91,7 +97,7 @@ public class SimpleDate {
 
 
     public static void main(String[] args) {
-        SimpleDate date1 = new SimpleDate(30, 12, 780);
+        SimpleDate date1 = new SimpleDate(13, 2, 2015);
         SimpleDate date2 = new SimpleDate(19, 6, 1623);
 
 //        System.out.println(date1 + " is earlier than " + date2 + ": " + date1.before(date2));
@@ -108,10 +114,25 @@ public class SimpleDate {
         //lets compare dates
 //        SimpleDate date3 = new SimpleDate(1, 1, 780);
 //        System.out.println(date1.equals(date3));
-        System.out.println(date1);
-        date1.advance();
-        System.out.println(date1);
-        date1.advance(30);
-        System.out.println(date1);
+
+        //advance dates
+//        System.out.println(date1);
+//        date1.advance();
+//        System.out.println(date1);
+//        date1.advance(30);
+//        System.out.println(date1);
+
+        //afterNumberOfDays
+        System.out.println("Friday of the examined week is " + date1);
+        SimpleDate newDate = date1.afterNumberOfDays(7);
+        System.out.println(newDate);
+        int week = 1;
+        while (week <= 7) {
+            System.out.println("Friday after " + week + " weeks is " + newDate);
+            newDate = newDate.afterNumberOfDays(7);
+
+            week++;
+        }
+        System.out.println("The date after 790 days from the examined Friday is " + date1.afterNumberOfDays(790));
     }
 }
