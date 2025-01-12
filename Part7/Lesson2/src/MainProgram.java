@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MainProgram {
 
 
@@ -30,8 +32,24 @@ public class MainProgram {
         }
         return smallestIndex;
     }
+
+    public static void swap(int[] array, int index1, int index2) {
+        int a = array[index1];
+        int b = array[index2];
+
+        array[index1] = b;
+        array[index2] = a;
+    }
+
+    public static void sort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int smallestIndex = indexOfSmallestFrom(array, i);
+            swap(array, i, smallestIndex);
+            System.out.println(Arrays.toString(array));
+        }
+    }
     public static void main(String[] args) {
-        int[] numbers = { 9, 8, 12};
-        System.out.println("Index of the smallest number: " + MainProgram.indexOfSmallest(numbers));
+        int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+        MainProgram.sort(numbers);
     }
 }
