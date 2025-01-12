@@ -13,6 +13,7 @@ public class UI {
     public void start() {
         readPoints();
         printGradeDistro();
+        printAverages();
     }
 
     public void readPoints() {
@@ -50,5 +51,10 @@ public class UI {
             System.out.print("*");
             stars--;
         }
+    }
+
+    public void printAverages() {
+        System.out.println("The average of points:" + this.register.averageOfPoints());
+        System.out.println("The average of grades: " + this.register.averageOfGrades());
     }
 }
