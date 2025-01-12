@@ -19,9 +19,24 @@ public class Main {
             String command = parts[0];
             int amount = Integer.parseInt(parts[1]);
 
+            if (amount < 0) {
+                continue;
+            }
             if (command.equals("add")) {
                 if (first + amount <= 100) {
                     first+=amount;
+                } else {
+                    first = 100;
+                }
+            }
+
+            if (command.equals("move")) {
+                if ((first - amount >= 0) && (second + amount <= 100)) {
+                    first-=amount;
+                    second+=amount;
+                } else if (second + amount > 100) {
+                    second = 100;
+                    first-=amount;
                 }
             }
 
