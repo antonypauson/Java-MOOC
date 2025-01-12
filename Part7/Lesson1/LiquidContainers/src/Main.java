@@ -40,6 +40,12 @@ public class Main {
                 }
             }
 
+            if (command.equals("remove")) {
+                if (second - amount >= 0) {
+                    second -= amount;
+                }
+            }
+
             if (command.equals("quit")) {
                 break;
             }
