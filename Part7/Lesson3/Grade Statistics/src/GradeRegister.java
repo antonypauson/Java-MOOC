@@ -40,4 +40,11 @@ public class GradeRegister {
     public ArrayList<Integer> passingPoints() {
         return passingPoints;
     }
+
+    public double findPassPercentage() {
+        int noOfPassed = passingPoints.size();
+        int noOfParticipants = points.size();
+
+        return 100 * ((double) noOfPassed / noOfParticipants);
+    }
 }

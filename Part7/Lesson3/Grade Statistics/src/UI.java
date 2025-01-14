@@ -13,6 +13,12 @@ public class UI {
         readPoints();
         printAverageOfPoints();
         printAverageOfPassingPoints();
+        printPassPercentage();
+    }
+
+    private void printPassPercentage() {
+        double passPercentage = register.findPassPercentage();
+        System.out.println("Pass percentage: " + passPercentage);
     }
 
     private void printAverageOfPassingPoints() {
