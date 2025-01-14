@@ -1,32 +1,14 @@
+import com.sun.tools.javac.Main;
+
 import java.util.Arrays;
 
 public class MainProgram {
 
-
-    public static int smallest(int[] array) {
-        int smallest = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (smallest > array[i]) {
-                smallest = array[i];
-            }
-        }
-        return smallest;
-    }
-
-    public static int indexOfSmallest(int[] array) {
-        int smallestIndex = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < array[smallestIndex]) {
-                smallestIndex = i;
-            }
-        }
-        return smallestIndex;
-    }
-
-    public static int indexOfSmallestFrom(int[] table, int startIndex) {
+    public static int indexOfSmallestFrom(int[] array, int startIndex) {
         int smallestIndex = startIndex;
-        for (int i = startIndex; i < table.length; i++) {
-            if (table[smallestIndex] > table[i]) {
+
+        for (int i = startIndex; i < array.length; i++) {
+            if (array[smallestIndex] > array[i]) {
                 smallestIndex = i;
             }
         }
@@ -44,12 +26,14 @@ public class MainProgram {
     public static void sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int smallestIndex = indexOfSmallestFrom(array, i);
-            swap(array, i, smallestIndex);
+            swap(array, smallestIndex,i);
             System.out.println(Arrays.toString(array));
         }
     }
+
     public static void main(String[] args) {
-        int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+        int[] numbers = {3, 2, 5, 4, 8};
+
         MainProgram.sort(numbers);
     }
 }
