@@ -14,6 +14,21 @@ public class UI {
         printAverageOfPoints();
         printAverageOfPassingPoints();
         printPassPercentage();
+        printGradeDistribution();
+    }
+
+    private String printStars(int grade) {
+        String out = "";
+        for (int i = grade; i > 0; i--) {
+            out += "*";
+        }
+        return out;
+    }
+
+    private void printGradeDistribution() {
+        for (int i = 5, j = 0; j < register.getGrades().length; j++,i--) {
+            System.out.println(i + ":" + printStars(register.getGrades()[j]));
+        }
     }
 
     private void printPassPercentage() {

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 public class GradeRegister {
     private ArrayList<Integer> points;
     private ArrayList<Integer> passingPoints;
+    private int[] grades;
 
     public GradeRegister() {
         this.points = new ArrayList<>();
         this.passingPoints = new ArrayList<>();
+        this.grades = new int[]{0, 0, 0, 0, 0, 0};
     }
 
 
@@ -18,6 +20,24 @@ public class GradeRegister {
 
         if (point >= 50 && point <= 100) {
             this.passingPoints.add(point);
+        }
+
+        convertToGrade(point);
+    }
+
+    private void convertToGrade(int point) {
+        if (point < 50) {
+            grades[5]++;
+        } else if (point < 60) {
+            grades[4]++;
+        } else if (point < 70) {
+            grades[3]++;
+        } else if (point < 80) {
+            grades[2]++;
+        } else if (point < 90) {
+            grades[1]++;
+        } else {
+            grades[0]++;
         }
     }
 
@@ -39,6 +59,10 @@ public class GradeRegister {
 
     public ArrayList<Integer> passingPoints() {
         return passingPoints;
+    }
+
+    public int[] getGrades() {
+        return grades;
     }
 
     public double findPassPercentage() {
