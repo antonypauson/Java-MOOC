@@ -12,6 +12,16 @@ public class UI {
     public void start() {
         readPoints();
         printAverageOfPoints();
+        printAverageOfPassingPoints();
+    }
+
+    private void printAverageOfPassingPoints() {
+
+        if (register.passingPoints().isEmpty()) {
+            System.out.println("Point average (passing): -");
+        } else {
+            System.out.println("Point average (passing): " + register.findAverage(register.passingPoints()));
+        }
     }
 
     private void printAverageOfPoints() {

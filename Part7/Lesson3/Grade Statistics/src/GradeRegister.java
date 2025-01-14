@@ -1,16 +1,23 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GradeRegister {
     private ArrayList<Integer> points;
+    private ArrayList<Integer> passingPoints;
 
     public GradeRegister() {
         this.points = new ArrayList<>();
+        this.passingPoints = new ArrayList<>();
     }
 
 
     public void addPoints(int point) {
-        if (point <= 100 && point >= 50) {
+        if (point <= 100 && point >= 0) {
             this.points.add(point);
+        }
+
+        if (point >= 50 && point <= 100) {
+            this.passingPoints.add(point);
         }
     }
 
@@ -28,5 +35,9 @@ public class GradeRegister {
 
     public ArrayList<Integer> allPoints() {
         return points;
+    }
+
+    public ArrayList<Integer> passingPoints() {
+        return passingPoints;
     }
 }
