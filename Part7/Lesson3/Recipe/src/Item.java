@@ -33,6 +33,9 @@ public class Item {
         return cookingTime;
     }
 
+    public ArrayList<String> getIngredients() {
+        return ingredients;
+    }
 
 
 }

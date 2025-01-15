@@ -48,10 +48,26 @@ public class UI {
             }
 
             if (command.equals("find cooking time")) {
-                System.out.println("Max Cooking Time:");
+                System.out.println("Max cooking time:");
                 int maxCookingTime = Integer.parseInt(scanner.nextLine());
                 printListWithCookingTime(maxCookingTime);
             }
+
+            if (command.equals("find ingredient")) {
+                System.out.println("finding ingredient");
+                System.out.println("Ingredient: ");
+                String ingredient = scanner.nextLine();
+
+                printListWithIngredient(ingredient);
+            }
+        }
+    }
+
+    private void printListWithIngredient(String ingredient) {
+        System.out.println("Ingredient: " + ingredient);//need work
+        ArrayList<String> mylist = recipe.itemsUnderIngredients(ingredient);
+        for (String list : mylist) {
+            printListWithName(list);
         }
     }
 

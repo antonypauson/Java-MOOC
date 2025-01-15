@@ -59,4 +59,18 @@ public class Recipe {
         }
         return myArray;
     }
+
+    public ArrayList<String> itemsUnderIngredients(String ingredient) {
+        ArrayList<String> myArray = new ArrayList<>();
+        for (Item item : items) {
+            for (String singleIngredient : item.getIngredients()) {
+                if (singleIngredient.equals(ingredient)) {
+                    myArray.add(item.getName());
+                }
+            }
+        }
+
+        return myArray;
+    }
+
 }
