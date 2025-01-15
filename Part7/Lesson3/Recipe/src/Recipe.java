@@ -1,8 +1,4 @@
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Recipe {
     private ArrayList<Item> items;
@@ -52,5 +48,15 @@ public class Recipe {
             }
         }
         return output;
+    }
+
+    public ArrayList<String> itemsUnderCookingTime(int maxCookingTime) {
+        ArrayList<String> myArray = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getCookingTime() <= maxCookingTime) {
+                myArray.add(item.getName());
+            }
+        }
+        return myArray;
     }
 }

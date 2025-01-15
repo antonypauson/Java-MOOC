@@ -24,6 +24,7 @@ public class UI {
         System.out.println("list - lists the recipes");
         System.out.println("stop - stops the program");
         System.out.println("find name - searches recipes by name");
+        System.out.println("find cooking time - searches recipes by cooking time");
         while (true) {
             System.out.println("Enter the command:");
 
@@ -43,10 +44,21 @@ public class UI {
             if (command.equals("find name")) {
                 System.out.println("Searched word: ");
                 String searchWord = scanner.nextLine();
-                //fix this
-                System.out.println("Search word: " + searchWord);
                 printListWithName(searchWord);
             }
+
+            if (command.equals("find cooking time")) {
+                System.out.println("Max Cooking Time:");
+                int maxCookingTime = Integer.parseInt(scanner.nextLine());
+                printListWithCookingTime(maxCookingTime);
+            }
+        }
+    }
+
+    private void printListWithCookingTime(int maxCookingTime) {
+        ArrayList<String> mylist = recipe.itemsUnderCookingTime(maxCookingTime);
+        for (String list : mylist) {
+            printListWithName(list);
         }
     }
 
