@@ -19,11 +19,11 @@ public class UI {
         System.out.println("let us begin the UI");
         System.out.println("File to read:");
         String file = scanner.nextLine();
-
+        readFull(file);
         System.out.println("Commands:");
         System.out.println("list - lists the recipes");
         System.out.println("stop - stops the program");
-
+        System.out.println("find name - searches recipes by name");
         while (true) {
             System.out.println("Enter the command:");
 
@@ -32,7 +32,6 @@ public class UI {
             if (command.equals("list")) {
 
                 System.out.println("Recipes:");
-                readFull(file);
                 System.out.println(recipe);
                 printListMode();
             }
@@ -40,11 +39,23 @@ public class UI {
             if (command.equals("stop")) {
                 break;
             }
+
+            if (command.equals("find name")) {
+                System.out.println("Searched word: ");
+                String searchWord = scanner.nextLine();
+                //fix this
+                System.out.println("Search word: " + searchWord);
+                printListWithName(searchWord);
+            }
         }
     }
 
-    private void printListMode() {
+    public void printListMode() {
         System.out.println(recipe.printListMode());
+    }
+
+    public void printListWithName(String itemName) {
+        System.out.println(recipe.printListMode(itemName));
     }
 
     public void readFull(String file) throws IOException {
