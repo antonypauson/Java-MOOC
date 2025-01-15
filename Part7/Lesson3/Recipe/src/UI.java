@@ -1,4 +1,8 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -28,13 +32,44 @@ public class UI {
             if (command.equals("list")) {
 
                 System.out.println("Recipes:");
-                recipe.listRecipe(file); //ithu sheriyaakkan ind;
+                readFull(file);
+                System.out.println(recipe);
+                printListMode();
             }
 
             if (command.equals("stop")) {
                 break;
             }
         }
-
     }
+
+    private void printListMode() {
+        System.out.println(recipe.printListMode());
+    }
+
+    public void readFull(String file) throws IOException {
+        System.out.println("reading file");
+        Scanner fileScanner = new Scanner(Paths.get(file));
+        ArrayList<String> rowList = new ArrayList<>();
+
+        while (fileScanner.hasNextLine()) {
+            String row = fileScanner.nextLine();
+//            System.out.println(row);
+
+            if (!(row.isEmpty())) {
+                rowList.add(row);
+            } else {
+                recipe.setRecipe(rowList);
+                rowList.clear();
+            }
+        }
+
+        //last recipe doesn't have an emtpy line
+        //it will be added to rowList
+        //but not setRecipe, as no empty line
+        if (!rowList.isEmpty()) {
+            recipe.setRecipe((rowList));
+        }
+    }
+
 }
