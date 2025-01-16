@@ -16,7 +16,15 @@ public class Main {
             String[] parts = input.split(" ");
             String command = parts[0];
             int amount = Integer.parseInt(parts[1]);
-            container.addToContainer(amount);
+
+            if (command.equals("add")) {
+                container.addToContainer(amount);
+            }
+
+            if (command.equals("move")) {
+                container.moveToContainer(amount);
+            }
+
         }
     }
 }

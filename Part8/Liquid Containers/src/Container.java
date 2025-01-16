@@ -15,11 +15,22 @@ public class Container {
         if (value > 0) {
             if (first + value <= 100) {
                 first += value;
+            } else {
+                first = 100;
             }
         }
     }
 
     public int getFirst() {
         return first;
+    }
+
+    public void moveToContainer(int amount) {
+        if (second + amount < 100) {
+            second += amount;
+        } else {
+            second = 100;
+        }
+        first -= amount;
     }
 }
