@@ -2,7 +2,7 @@ public class Container {
     private int amount;
 
     public Container() {
-
+        this.amount = 0;
     }
 
     public int contains() {
@@ -20,7 +20,7 @@ public class Container {
     }
 
     public String toString() {
-        return amount + "/100";
+        return amount + "/100\n";
     }
 
     public void remove (int amount) {
@@ -30,17 +30,5 @@ public class Container {
             this.amount = 0;
         }
     }
-    public static void main(String[] args) {
-        Container container = new Container();
-        System.out.println(container);
 
-        container.add(50);
-        System.out.println(container.contains());
-
-        container.remove(60);
-        System.out.println(container);
-
-        container.add(200);
-        System.out.println(container);
-    }
 }
