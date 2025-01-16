@@ -25,6 +25,9 @@ public class Main {
                 container.moveToContainer(amount);
             }
 
+            if (command.equals("remove")) {
+                container.removeFromContainer(amount);
+            }
         }
     }
 }

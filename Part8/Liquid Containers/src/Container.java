@@ -33,4 +33,12 @@ public class Container {
         }
         first -= amount;
     }
+
+    public void removeFromContainer(int amount) {
+        if (second - amount > 0) {
+            second -= amount;
+        } else {
+            second = 0;
+        }
+    }
 }
