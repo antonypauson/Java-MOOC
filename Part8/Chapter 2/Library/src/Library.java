@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -45,6 +47,22 @@ public class Library {
         }
     }
 
+    public ArrayList<Book> getBookByPart(String titlePart) {
+        titlePart = sanitizedString(titlePart);
+
+        ArrayList<Book> books = new ArrayList<>();
+
+        for (String bookTitle : this.directory.keySet()) {
+            if (!bookTitle.contains(titlePart)) {
+                continue;
+            }
+
+            books.add(this.directory.get(bookTitle));
+        }
+
+        return books;
+    }
+
     public static void main(String[] args) {
         Book book1 = new Book("Balarama", "childen's magazine", 1999);
         Book book2 = new Book("Kalikkudukka", "childen's magazine", 1999);
@@ -60,6 +78,10 @@ public class Library {
 
 
         System.out.println(library.getBook("bAlarama").getName());
+        for (Book book : library.getBookByPart("ama")) {
+            System.out.println(book.getName());
+        }
+
     }
 
 }
