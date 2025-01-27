@@ -27,5 +27,11 @@ public class Main {
         System.out.println("Owners:");
         System.out.println(owners.get(new LicensePlate("FI", "ABC-123")));
         System.out.println(owners.get(new LicensePlate("D", "B WQ-431")));
+
+        VehicleRegistry registry = new VehicleRegistry();
+        registry.add(li2, "Eren");
+        registry.add(li3, "Toyota");
+        registry.printLicensePlates();
+        registry.printOwners();
     }
 }

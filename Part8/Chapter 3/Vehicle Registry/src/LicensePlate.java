@@ -28,4 +28,6 @@ public class LicensePlate {
     public int hashCode() {
         return 31 * country.hashCode() + liNumber.hashCode();
     }
+
+
 }
