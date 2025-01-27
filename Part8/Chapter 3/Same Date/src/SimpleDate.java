@@ -23,6 +23,14 @@ public class SimpleDate {
                 dateObject.year == this.year);
     }
 
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + day;
+        result = 31 * result + month;
+        result = 31 * result + year;
+        return result;
+    }
+
     public static void main(String[] args) {
         SimpleDate d = new SimpleDate(1, 2, 2000);
         System.out.println(d.equals("heh"));
