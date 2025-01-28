@@ -14,12 +14,15 @@ public class Student extends Person {
         this.credit++;
     }
 
+    public String toString() {
+        return super.toString() + "\n  " + this.credits();
+    }
+
     public static void main(String[] args) {
         Student ollie = new Student("Ollie", "Ollie's Address");
         System.out.println(ollie);
-        System.out.println(ollie.credits());
         ollie.study();
-        System.out.println(ollie.credits());
+        System.out.println(ollie);
     }
 
 }
