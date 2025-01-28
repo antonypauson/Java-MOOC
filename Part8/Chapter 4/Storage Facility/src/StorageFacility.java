@@ -17,6 +17,10 @@ public class StorageFacility {
         return this.storage.get(storageUnit);
     }
 
+    public void remove(String storageUnit, String item) {
+        this.storage.get(storageUnit).remove(item);
+    }
+
     public static void main(String[] args) {
         StorageFacility facility = new StorageFacility();
         facility.add("a14", "ice skates");
@@ -28,6 +32,8 @@ public class StorageFacility {
 
         facility.add("g63", "six");
         facility.add("g63", "pi");
+
+        facility.remove("f156", "rollerblades");
 
         System.out.println(facility.contents("a14"));
         System.out.println(facility.contents("f156"));
