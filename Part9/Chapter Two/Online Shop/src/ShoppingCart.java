@@ -9,8 +9,14 @@ public class ShoppingCart {
     }
 
     public void add(String product, int price) {
-        Item item = new Item(product, 1, price);
-        this.cart.put(product, item);
+        if (cart.containsKey(product)) {
+            Item item = this.cart.get(product);
+            item.increaseQuantity();
+        } else {
+            Item item = new Item(product, 1, price);
+            this.cart.put(product, item);
+        }
+
     }
 
     public int price() {
@@ -30,14 +36,19 @@ public class ShoppingCart {
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
         cart.add("milk", 3);
+        cart.print(); //product: quantity
+        System.out.println("cart price: " + cart.price() + "\n"); //price * quantity
+
         cart.add("buttermilk", 2);
-        cart.add("cheese", 5);
-
-        System.out.println("cart price: " + cart.price());
-
-        cart.add("computer", 899);
-        System.out.println("cart price: " + cart.price());
-
         cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
+
+        cart.add("milk", 3);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
+
+        cart.add("buttermilk", 3);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
     }
 }
