@@ -21,6 +21,12 @@ public class ShoppingCart {
         return totalPrice;
     }
 
+    public void print() {
+        for (Item item : cart.values()) {
+            System.out.println(item);
+        }
+    }
+
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
         cart.add("milk", 3);
@@ -31,5 +37,7 @@ public class ShoppingCart {
 
         cart.add("computer", 899);
         System.out.println("cart price: " + cart.price());
+
+        cart.print();
     }
 }
